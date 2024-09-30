@@ -1,7 +1,9 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import "@radix-ui/themes/styles.css";
-import { Theme } from "@radix-ui/themes";
+import { Box, Theme } from "@radix-ui/themes";
+import NavigationBar from "@/components/NavigationBar";
+import Footer from "@/components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,8 +13,13 @@ export default function App({ Component, pageProps }: AppProps) {
         grayColor="mauve"
         radius="large"
         appearance={"dark"}
+        panelBackground={"translucent"}
       >
-        <Component {...pageProps} />
+        <NavigationBar />
+        <Box minHeight={"90vh"}>
+          <Component {...pageProps} />
+        </Box>
+        <Footer />
       </Theme>
     </>
   );
